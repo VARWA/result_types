@@ -1,7 +1,7 @@
 name: result_types
 
 description: A lightweight Dart package with Result and Failure types for explicit and composable error handling.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/VARWA/result_types
 homepage: https://github.com/VARWA/result_types
 issue_tracker: https://github.com/VARWA/result_types/issues

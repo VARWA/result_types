@@ -1,0 +1,20 @@
+name: result_types
+
+description: A simple Dart library for Result and Failure types with functional-style error handling.
+version: 0.0.1
+repository: https://github.com/VARWA/result_types
+homepage: https://github.com/VARWA/result_types
+issue_tracker: https://github.com/VARWA/result_types/issues
+topics:
+  - result
+  - error-handling
+  - functional
+
+environment:
+  sdk: ">=3.7.2 <4.0.0"
+
+dev_dependencies:
+  test: ^1.26.2
+
+
+license: MIT

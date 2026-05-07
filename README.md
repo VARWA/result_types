@@ -20,7 +20,7 @@ Add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  result_types: ^0.0.1
+  result_types: ^0.0.3
 ```
 
 Then run:

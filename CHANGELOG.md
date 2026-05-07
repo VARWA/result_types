@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.0.3
+
+- Aligned release artifacts after the previous tag mismatch.
+- Updated package metadata and release documentation consistency.
+- No breaking API changes.
+
 ## 0.0.2
 
 - Finalized repository and package presentation for public release.

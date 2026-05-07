@@ -2,11 +2,16 @@
 
 A lightweight Dart package that provides `Result<T>` and `AppFailure` types for explicit, functional-style error handling.
 
+![Dart](https://img.shields.io/badge/dart-%3E%3D3.7.2-blue)
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 ## Features
 
 - `Result.success(value)` and `Result.failure(error)` constructors
 - Functional helpers: `map`, `flatMap`, `fold`, `getOrElse`, `match`
+- Recovery helpers: `recover`, `recoverWith`
 - Async helpers: `Result.tryAsync`, `mapAsync`, `flatMapAsync`
+- Side-effect helpers: `tap`, `tapFailure`
 - Built-in failure types: `NetworkFailure`, `ServerFailure`, `ParsingFailure`, `UnknownFailure`, and more
 
 ## Installation
@@ -50,6 +55,7 @@ void main() {
     (error) => 'Failure: $error',
   );
 
+  // ignore: avoid_print
   print(text);
 }
 ```
@@ -70,6 +76,41 @@ Future<Result<String>> loadUserName() {
   );
 }
 ```
+
+## Recovery Example
+
+```dart
+import 'package:result_types/result_types.dart';
+
+Result<int> parsePort(String rawPort) {
+  final parsed = int.tryParse(rawPort);
+  if (parsed == null) {
+    return Result.failure(ParsingFailure(message: 'Port is not a number'));
+  }
+  return Result.success(parsed);
+}
+
+void main() {
+  final port = parsePort('invalid')
+      .recover((_) => 8080)
+      .getOrThrow();
+
+  assert(port == 8080);
+}
+```
+
+## Why use `Result<T>`
+
+- Keeps happy path and error path explicit in the type system
+- Prevents exception-heavy control flow in domain logic
+- Makes composition predictable with `map` and `flatMap`
+- Improves testability of error scenarios
+
+## Best Practices
+
+- Model failures at the domain boundary (`NetworkFailure`, `ParsingFailure`, etc.)
+- Convert thrown exceptions into `AppFailure` using `Result.tryAsync`
+- Keep UI and application layers focused on `fold`/`match` instead of `try/catch`
 
 ## License
 

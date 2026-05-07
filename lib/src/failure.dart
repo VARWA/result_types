@@ -3,21 +3,25 @@ library;
 import 'app_failure.dart';
 
 class NetworkFailure extends AppFailure {
-  NetworkFailure({super.message, super.stackTrace});
+  const NetworkFailure({super.message, super.stackTrace});
 }
 
-class TokenFailure extends AppFailure {}
+class TokenFailure extends AppFailure {
+  const TokenFailure({super.message, super.stackTrace});
+}
 
-class ServerFailure extends AppFailure {}
+class ServerFailure extends AppFailure {
+  const ServerFailure({super.message, super.stackTrace});
+}
 
 class UnknownFailure extends AppFailure {
-  UnknownFailure({super.message, super.stackTrace});
+  const UnknownFailure({super.message, super.stackTrace});
 }
 
 class CancelledFailure extends AppFailure {
-  CancelledFailure({required String message}) : super(message: message);
+  const CancelledFailure({required String message}) : super(message: message);
 }
 
 class ParsingFailure extends AppFailure {
-  ParsingFailure({super.message, super.stackTrace});
+  const ParsingFailure({super.message, super.stackTrace});
 }

@@ -22,5 +22,7 @@ Future<void> main() async {
     onFailure: (error) => 'Error: $error',
   );
 
+  // Example app output.
+  // ignore: avoid_print
   print(message);
 }
